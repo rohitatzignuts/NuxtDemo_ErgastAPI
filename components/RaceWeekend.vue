@@ -22,7 +22,7 @@ const dateFormat = useDateFormatter()
             <p class="text-4xl">Race Weekend</p>
             <h4 class="leading-5 mt-2 mb-8 tracking-wide">{{ raceData.raceName }} {{ raceData.season }}</h4>
             <p class="py-2">Track Times</p>
-            <section class="border my-4 p-4">
+            <section class="border-t-4 border-b-4  border-r-4 my-4 p-4  rounded-lg">
                 <div>
                     <ul>
                         <li class="flex flex-row my-4">
@@ -45,7 +45,16 @@ const dateFormat = useDateFormatter()
                             </div>
                         </li>
                         <hr class="border-stone-400 my-4">
-                        <li class="flex flex-row my-4">
+                        <li class="flex flex-row my-4" v-if="raceData.ThirdPractice == undefined">
+                            <div class="basis-1/4">
+                                <p class="text-2xl">{{ dateFormat(raceData.Sprint.date) }}</p>
+                            </div>
+                            <div class="basis-3/4">
+                                <p class="text-2xl mb-2">Sprint</p>
+                                <span>{{raceData.Sprint.time}}</span>
+                            </div>
+                        </li>
+                        <li class="flex flex-row my-4" v-if="raceData.ThirdPractice">
                             <div class="basis-1/4">
                                 <p class="text-2xl">{{ dateFormat(raceData.ThirdPractice.date) }}</p>
                             </div>

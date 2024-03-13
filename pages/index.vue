@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const {data : response, Loading} = await useFetch('/api/races')
+const {data : response} = await useFetch('/api/races')
 const races = toRaw(response.value.MRData.RaceTable.Races)
 
 </script>
